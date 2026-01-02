@@ -128,7 +128,7 @@ class UltraApp:
         try:
             self.root.iconbitmap("app.ico")
         except:
-            pass # Ignores error if app.ico file is missing
+            pass     # Ignores error if app.ico file is missing
         
         db.init_db()
         self.current_date = date.today().isoformat()
@@ -200,7 +200,6 @@ class UltraApp:
 
     # --- DASHBOARD ---
     def build_dashboard(self, parent):
-        # UPDATED GREETING LOGIC FOR INDIAN TIME
         hour = datetime.now().hour
         if 5 <= hour < 12:
             greet = "Good Morning"
@@ -282,7 +281,6 @@ class UltraApp:
         row2 = tk.Frame(stats_col, bg=C_CARD, padx=20, pady=15)
         row2.pack(fill="x")
         
-        # We use a Gold color for Perfect Streak
         GOLD = "#f59e0b"
         
         tk.Label(row2, text="PERFECT STREAK (100% DONE)", font=get_font(10, "bold"), bg=C_CARD, fg=GOLD).pack(anchor="w")
@@ -336,7 +334,7 @@ class UltraApp:
     def build_settings(self, parent):
         tk.Label(parent, text="Settings", font=get_font(24, "bold"), bg=C_BG_MAIN, fg=C_TEXT_MAIN).pack(anchor="w", pady=(0,30))
         
-        # Section 1: Preferences
+        # --- Section 1: Preferences ---
         tk.Label(parent, text="PREFERENCES", font=get_font(10, "bold"), bg=C_BG_MAIN, fg=C_TEXT_SUB).pack(anchor="w", pady=(0, 10))
         card_pref = tk.Frame(parent, bg=C_CARD, padx=20, pady=20)
         card_pref.pack(fill="x", pady=(0, 30))
@@ -349,10 +347,10 @@ class UltraApp:
                                    bg=C_ACCENT, fg="#0f172a", font=("Arial", 9, "bold"), width=6, relief="flat")
         self.btn_sound.pack(side="right")
 
-        # Section 2: Data Management (Danger Zone)
+        # --- Section 2: Danger Zone ---
         tk.Label(parent, text="DANGER ZONE", font=get_font(10, "bold"), bg=C_BG_MAIN, fg=C_DANGER).pack(anchor="w", pady=(0, 10))
         card_danger = tk.Frame(parent, bg=C_CARD, padx=20, pady=20)
-        card_danger.pack(fill="x")
+        card_danger.pack(fill="x", pady=(0, 30))
 
         # Clear Data Row
         row_clear = tk.Frame(card_danger, bg=C_CARD)
@@ -363,10 +361,23 @@ class UltraApp:
         tk.Label(text_frame, text="Clear All Data", font=get_font(12, "bold"), bg=C_CARD, fg=C_DANGER).pack(anchor="w")
         tk.Label(text_frame, text="Permanently delete all goals and statistics.", font=get_font(10), bg=C_CARD, fg=C_TEXT_SUB).pack(anchor="w")
 
-        # Delete Button
         btn_del = tk.Button(row_clear, text="DELETE", command=self.clear_all_data, 
                             bg=C_DANGER, fg="white", font=("Arial", 9, "bold"), width=10, relief="flat")
         btn_del.pack(side="right")
+
+        # --- Section 3: About Us  ---
+        tk.Label(parent, text="ABOUT", font=get_font(10, "bold"), bg=C_BG_MAIN, fg=C_TEXT_SUB).pack(anchor="w", pady=(0, 10))
+        card_about = tk.Frame(parent, bg=C_CARD, padx=20, pady=25)
+        card_about.pack(fill="x")
+
+        # Logo / Title
+        tk.Label(card_about, text="Focus Ultra", font=get_font(16, "bold"), bg=C_CARD, fg=C_ACCENT).pack(anchor="center")
+        
+        # Author Credit
+        tk.Label(card_about, text="Built by Prashant", font=get_font(11), bg=C_CARD, fg=C_TEXT_MAIN).pack(anchor="center", pady=(5, 0))
+        
+        # Version info 
+        tk.Label(card_about, text="v1.0 • Offline Edition", font=get_font(9), bg=C_CARD, fg="#64748b").pack(anchor="center", pady=(10, 0))
 
     def toggle_sound(self):
         global SOUND_ON

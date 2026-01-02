@@ -1,3 +1,5 @@
+Created by Prashant —>> built for fun
+
 Focus Ultra
 
 Focus Ultra is a small desktop focus app I made mainly for fun and personal use.
@@ -44,10 +46,14 @@ Made mostly for friends and college use
 
 It’s simple on purpose.
 
+##Instructions:
+1.Use 12 hrs format of time in your pc
+2.If you dont want an executable file then directly use the following code in an integrated terminal
+    Bash
+    python main.py
 
 
-
-##For creating a .exe file(or an app) in your pc:
+##For creating .exe file(or an app) in your pc:
 
 1.Install PyInstaller
 
