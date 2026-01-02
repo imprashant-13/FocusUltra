@@ -86,7 +86,3 @@ Notes
 1.First build may take some time
 2.Windows Defender may show a warning (normal for unsigned executables)
 3.Make sure the icon file is a valid .ico file
-
-License
-MIT License.
-Use it, modify it, or share it however you want.
